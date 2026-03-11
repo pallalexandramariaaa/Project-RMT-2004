@@ -1,6 +1,6 @@
 hello girls ^^
 
-import numpy as np
+import ] as np
 from scipy.integrate import odeint
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -35,5 +35,12 @@ params = (k1, k2, fd, fp, k3a, k3b, k4, k5, k6, k7, k8)
 
 
 
+# Plot each variable separately
+labels = [
+    "MSC concentration m(t)",
+    "Chondrocyte concentration n(t)",
+    "Latent unbound TGF-beta c(t)",
+    "Latent bound TGF-beta b(t)",
+    "Active TGF-beta a(t)" ]
 
 
