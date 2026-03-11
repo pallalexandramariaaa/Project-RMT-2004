@@ -6,7 +6,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from scipy.integrate import solve_ivp
 
-#Paramters (representative): Put here the values from the table given in the task
+#Paramters put here the values from the table given in the task
 params = {
     "k1": 1.4e-3,
     "k2": 1.4e-4,
