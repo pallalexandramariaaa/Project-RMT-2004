@@ -1,4 +1,3 @@
-# hello girls ^^
 
 import numpy as np
 from scipy.integrate import odeint
@@ -33,8 +32,9 @@ y0 = [m0, n0, c0, b0, a0]
 t = np.linspace(0, 28 * 24 * 60, 1000)
 
 #ODE system : Define using def function 
-def odes (y,t,p)           #Where y is m, n, c... 
-k1, k2, fd, fp, k3a, k3b, k4, k5, k6, k7, k8 = p   #Where p are the parameters
+def odes (y,t,p):
+    m, n, c, b, a = y                                  #Where y is m, n, c... 
+    k1, k2, fd, fp, k3a, k3b, k4, k5, k6, k7, k8 = p   #Where p are the parameters
 
 # We need to write the ODEs here right?
     # MSCs: proliferation - differentiation
@@ -52,9 +52,7 @@ k1, k2, fd, fp, k3a, k3b, k4, k5, k6, k7, k8 = p   #Where p are the parameters
     # Active: activation of latent - natural decay
     dadt = (k6 * c) - (k8 * a)
 
-
 #Then use return for the dm/dt, dn/dt ...
-
 return [dmdt, dndt, dcdt, dbdt, dadt]
 
 # Plot each variable separately
