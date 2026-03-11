@@ -6,11 +6,15 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import scipy.integrate import solve_ivp
 
-Paramters (representative) #Put here the values from the table given in the task
+#Paramters (representative): Put here the values from the table given in the task
 k1=1.4e-3
 k2=
 fd=
 fp=
+
+#Initial conditions : For all 5 functions we have in the ODE system (e.g : m(t) ...)
+m0=
+
 
 
 
