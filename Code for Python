@@ -31,10 +31,22 @@ y0 = [m0, n0, c0, b0, a0]
 params = ("k1", "k2", "fd", "fp", "k3a", "k3b", "k4", "k5", "k6", "k7", "k8")
 
 
+
+
 #ODE system : Define using def function 
+def odes (y,t,p)           #Where y is m, n, c... 
+k1, k2, fd, fp, k3a, k3b, k4, k5, k6, k7, k8 = p   #Where p are the parameters
+
+# We need to write the ODEs here right?
 
 
 
+
+
+
+#Then use return for the dm/dt, dn/dt ...
+
+return(
 
 # Plot each variable separately
 labels = [
