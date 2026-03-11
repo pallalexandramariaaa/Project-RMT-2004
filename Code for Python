@@ -7,10 +7,19 @@ import matplotlib.pyplot as plt
 import scipy.integrate import solve_ivp
 
 #Paramters (representative): Put here the values from the table given in the task
-k1=1.4e-3
-k2=
-fd=
-fp=
+params = {
+    "k1": 1.4e-3,
+    "k2": 1.4e-4,
+    "fd": 0.01,
+    "fp": 0.05,
+    "k3": 1.094e-1,
+    "k4": 1.0e-1,
+    "k5": 6.0e-2,
+    "k6": 6.0e-2,
+    "k7": 6.0e-2,
+    "k8": 0.258
+}
+
 
 #Initial conditions : For all 5 functions we have in the ODE system (e.g : m(t) ...)
 m0=
