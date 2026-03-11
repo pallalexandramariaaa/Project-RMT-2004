@@ -1,1 +1,15 @@
 hello girls ^^
+
+import numpy as np
+from scipy.integrate import odeint
+import pandas as pd
+import matplotlib.pyplot as plt
+import scipy.integrate import solve_ivp
+
+
+
+
+
+
+
+
