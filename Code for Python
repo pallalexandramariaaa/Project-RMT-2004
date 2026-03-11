@@ -20,7 +20,7 @@ params = {
     "k8": 0.258
 }
 
-# ODE system
+# ODEs system
 
 
 #Initial conditions : For all 5 functions we have in the ODE system (e.g : m(t) ...)
