@@ -37,12 +37,25 @@ def odes (y,t,p)           #Where y is m, n, c...
 k1, k2, fd, fp, k3a, k3b, k4, k5, k6, k7, k8 = p   #Where p are the parameters
 
 # We need to write the ODEs here right?
-
+    # MSCs: proliferation - differentiation
+    dmdt = (k2 * m * a/(a + fp)) - (k1 * m * a/(a + fd))
+    
+    # Chondrocytes: gain from MSC differentiation
+    dndt = (k1 * m * a/(a + fd))
+    
+    # Latent unbound: production + release from bound - activation - decay - binding
+    dcdt = (k3 * n) + (k4 * b) - (k6 * c) - (k5 * c) - (k4 * c)
+    
+    # Latent bound: binding - release - decay
+    dbdt = (k4 * c) - (k4 * b) - (k7 * b)
+    
+    # Active: activation of latent - natural decay
+    dadt = (k6 * c) - (k8 * a)
 
 
 #Then use return for the dm/dt, dn/dt ...
 
-return(
+return [dmdt, dndt, dcdt, dbdt, dadt]
 
 # Plot each variable separately
 labels = [
@@ -51,5 +64,18 @@ labels = [
     "Latent unbound TGF-beta c(t)",
     "Latent bound TGF-beta b(t)",
     "Active TGF-beta a(t)" ]
+
+# Plotting
+plt.figure(figsize=(12, 8))
+for i in range(5):
+    plt.subplot(3, 2, i+1)
+    plt.plot(t / (24 * 60), sol[:, i], label=labels[i]) # x-axis in days
+    plt.title(labels[i])
+    plt.xlabel("Time (days)")
+    plt.ylabel("Concentration")
+    plt.grid(True)
+
+plt.tight_layout()
+plt.show()
 
 
