@@ -1,4 +1,4 @@
-#Tast 3: Implement the model in Python
+#Task 3: Implement the model in Python
 
 import numpy as np
 from scipy.integrate import odeint
@@ -54,7 +54,7 @@ def odes (y,t,p):
     dadt = (k6 * c) - (k8 * a)
 
 #Then use return for the dm/dt, dn/dt ...
-return [dmdt, dndt, dcdt, dbdt, dadt]
+    return [dmdt, dndt, dcdt, dbdt, dadt]
 
 # Plot each variable separately
 labels = [
