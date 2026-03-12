@@ -65,7 +65,7 @@ def odes(y, t, params):
     # Active: activation of latent - natural decay
     dadt = (k6 * c) - (k8 * a)
 
-#Then use return for the dm/dt, dn/dt ...
+#Then use return for the dm/dt, dn/dt, dcdt, dbdt and dadt
 
     return [dmdt, dndt, dcdt, dbdt, dadt]
 
