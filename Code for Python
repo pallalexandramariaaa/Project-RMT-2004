@@ -94,3 +94,29 @@ for i in range(5):
 plt.tight_layout()
 plt.show()
 
+#Task 5: Find minimal combinations of TGF-β and chondrocytes
+
+# Scan the parameter space: n0 from 0.1 to 0.5, c0 from 0.01 to 0.5
+n0_range = np.linspace(0.1, 0.5, 20)
+c0_range = np.linspace(0.01, 0.5, 20)
+healthy = np.zeros((len(n0_range), len(c0_range)))
+
+t_end = 28 * 24 * 60  # 28 days in minutes
+t = np.linspace(0, t_end, 500)\
+
+#Nestled for loop
+
+
+
+
+
+
+#Use heatmap to plot the combinations.
+plt.figure(figsize=(8,6))
+plt.imshow(healthy, extent=[c0_range[0], c0_range[-1], n0_range[0], n0_range[-1]],   #We select the range from the first to the last element
+           origin='lower', cmap='RdYlGn', interpolation='none')  
+plt.colorbar(label='Healthy (n(28)>0.65)')
+plt.xlabel('Initial latent TGF-β c₀ (ng/mL)')
+plt.ylabel('Initial chondrocytes n₀ (Mio cells/mL)')
+plt.title('Healthy co-cultures (28 days)')
+plt.show()
