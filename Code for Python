@@ -101,8 +101,7 @@ n0_range = np.linspace(0.1, 0.5, 20)
 c0_range = np.linspace(0.01, 0.5, 20)
 healthy = np.zeros((len(n0_range), len(c0_range)))
 
-t_end = 28 * 24 * 60  # 28 days in minutes
-t = np.linspace(0, t_end, 500)\
+t_scan = np.linspace(0, 28*24*60, 500) #Creates 500 evenly spaced time points for the simulation over 28 days.
 
 #Nestled for loop
 
