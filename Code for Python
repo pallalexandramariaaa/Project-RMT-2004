@@ -112,7 +112,7 @@ for i, n0 in enumerate(n0_range):
         y_start = [m0, n0, c0, 0.0, 0.0]  
         
         # odeint (easier than solve_ivp)
-        sol = odeint(odes, y_start, t_span, args=(params,))
+        sol = odeint(odes, y_start, t_scan, args=(params,))
         
         # FIXED threshold: 50% of TOTAL initial = 0.65
         final_n = sol[-1, 1]  # n at t_end
