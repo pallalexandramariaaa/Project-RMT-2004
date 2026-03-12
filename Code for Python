@@ -105,9 +105,18 @@ t_scan = np.linspace(0, 28*24*60, 500) #Creates 500 evenly spaced time points fo
 
 #Nestled for loop
 
+m0 = 1.0
 
-
-
+for i, n0 in enumerate(n0_range):
+    for j, c0 in enumerate(c0_range): 
+        y_start = [m0, n0, c0, 0.0, 0.0]  
+        
+        # odeint (easier than solve_ivp)
+        sol = odeint(odes, y_start, t_span, args=(params,))
+        
+        # FIXED threshold: 50% of TOTAL initial = 0.65
+        final_n = sol[-1, 1]  # n at t_end
+        healthy[i,j] = final_n > 0.65
 
 
 #Use heatmap to plot the combinations.
