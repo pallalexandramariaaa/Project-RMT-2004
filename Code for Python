@@ -32,10 +32,22 @@ y0 = [m0, n0, c0, b0, a0]
 # Time vector (28 days in minutes: 28 * 24 * 60)
 t = np.linspace(0, 28 * 24 * 60, 1000)
 
-#ODE system : Define using def function 
-def odes (y,t,p):
-    m, n, c, b, a = y                                  #Where y is m, n, c... 
-    k1, k2, fd, fp, k3a, k3b, k4, k5, k6, k7, k8 = p   #Where p are the parameters
+# ODE system : Define using def function 
+def odes(y, t, params):
+    # Extract parameters from the params dictionary
+    k1 = params["k1"]
+    k2 = params["k2"]
+    fd = params["fd"]
+    fp = params["fp"]
+    k3 = params["k3"]
+    k4 = params["k4"]
+    k5 = params["k5"]
+    k6 = params["k6"]
+    k7 = params["k7"]
+    k8 = params["k8"]
+    
+    # Extract state variables
+    m, n, c, b, a = y
 
 # We need to write the ODEs here right?
     # MSCs: proliferation - differentiation
@@ -54,7 +66,12 @@ def odes (y,t,p):
     dadt = (k6 * c) - (k8 * a)
 
 #Then use return for the dm/dt, dn/dt ...
+
     return [dmdt, dndt, dcdt, dbdt, dadt]
+
+# Solve the ODE system using odeint
+# Added this line to solve the system before plotting
+sol = odeint(odes, y0, t, args=(params,))
 
 # Plot each variable separately
 labels = [
@@ -76,5 +93,4 @@ for i in range(5):
 
 plt.tight_layout()
 plt.show()
-
 
