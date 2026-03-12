@@ -103,9 +103,9 @@ healthy = np.zeros((len(n0_range), len(c0_range)))
 
 t_scan = np.linspace(0, 28*24*60, 500) #Creates 500 evenly spaced time points for the simulation over 28 days.
 
-#Nestled for loop
+#For loop
 
-m0 = 1.0
+m0 = 1.0  #This is the fixed initial MSC concentration
 
 for i, n0 in enumerate(n0_range):
     for j, c0 in enumerate(c0_range): 
