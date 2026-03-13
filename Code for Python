@@ -128,3 +128,25 @@ plt.xlabel('Initial latent TGF-β c₀ (ng/mL)')
 plt.ylabel('Initial chondrocytes n₀ (Mio cells/mL)')
 plt.title('Healthy co-cultures (28 days)')
 plt.show()
+
+#Check the final values
+m_final = sol[-1,0]
+n_final = sol[-1,1]
+c_final = sol[-1,2]
+b_final = sol[-1,3]
+a_final = sol[-1,4]
+
+#Print everything
+print("Final values after 28 days:")
+print("MSC:", m_final)
+print("Chondrocytes:", n_final)
+print("Latent unbound TGFβ:", c_final)
+print("Latent bound TGFβ:", b_final)
+print("Active TGFβ:", a_final)
+
+#As to why the second graph stops at 1.4 (visibly)
+#Check the last values and see that they are around 1.58
+print(sol[-5:,1])
+
+#Might be because: The graph hasn't reached the final point clearly
+# Or maybe due to resolution or some other cause ?
