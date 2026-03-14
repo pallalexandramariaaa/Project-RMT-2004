@@ -49,7 +49,7 @@ def odes(y, t, params):
     # Extract state variables
     m, n, c, b, a = y
 
-# We need to write the ODEs here right?
+# Write the ODEs here.
     # MSCs: proliferation - differentiation
     dmdt = (k2 * m * a/(a + fp)) - (k1 * m * a/(a + fd))
     
