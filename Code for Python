@@ -108,22 +108,18 @@ t_scan = np.linspace(0, 28*24*60, 500) #Creates 500 evenly spaced time points fo
 m0 = 1.0  #This is the fixed initial MSC concentration
 
 for i, n0 in enumerate(n0_range):
-    for j, c0 in enumerate(c0_range): 
-        y_start = [m0, n0, c0, 0.0, 0.0]  
-        
-        # odeint (easier than solve_ivp)
+    for j, c0 in enumerate(c0_range):
+        y_start = [m0, n0, c0, 0.0, 0.0]
         sol = odeint(odes, y_start, t_scan, args=(params,))
-        
-        # FIXED threshold: 50% of TOTAL initial = 0.65
-        final_n = sol[-1, 1]  # n at t_end
-        healthy[i,j] = final_n > 0.65
-
+        final_n = sol[-1,1]
+        threshold = 0.5 * (m0 + n0)
+        healthy[i,j] = final_n > threshold
 
 #Use heatmap to plot the combinations.
 plt.figure(figsize=(8,6))
 plt.imshow(healthy, extent=[c0_range[0], c0_range[-1], n0_range[0], n0_range[-1]],   #We select the range from the first to the last element
            origin='lower', cmap='Greens', interpolation='none')  #Use Greens since it shows only green gradient, easier to understand
-plt.colorbar(label='Healthy (n(28)>0.65)')
+plt.colorbar(label='Healthy (n(28)>50%×(total initial cells))')
 plt.xlabel('Initial latent TGF-β c₀ (ng/mL)')
 plt.ylabel('Initial chondrocytes n₀ (Mio cells/mL)')
 plt.title('Healthy co-cultures (28 days)')
